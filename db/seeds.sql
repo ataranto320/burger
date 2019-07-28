@@ -1,8 +1,8 @@
 INSERT INTO burgers (burger_name, devoured)
-VALUES ("Mexi", "");
+VALUES ("Mexi", "true");
 
 INSERT INTO burgers (burger_name, devoured)
-VALUES ("BBQ", "");
+VALUES ("BBQ", "true");
 
 INSERT INTO burgers (burger_name, devoured)
-VALUES ("Apple Bacon", "");
+VALUES ("Apple Bacon", "false");
