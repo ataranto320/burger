@@ -1,0 +1,4 @@
+install dotenv
+create env file
+declare variables
+use them in code

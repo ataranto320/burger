@@ -10,8 +10,8 @@ var connection = mysql.createConnection({
   user: "root",
 
   // Your password
-  password: "vodkamysql1",
-  database: "burgers_db"
+  password: process.env.password,
+  database: process.env.database
 });
 
   con.connect(function(err) {

@@ -1,4 +1,5 @@
 var express = require("express");
+var dotenv = require("dotenv");
 
 // Sets up the Express App
 // =============================================================
