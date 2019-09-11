@@ -1,5 +1,6 @@
 // Requiring our burgers model
 var db = require("../models");
+var connection = require("../config/connection.js");
 
 // Routes
 // =============================================================
@@ -21,7 +22,7 @@ module.exports = function(app) {
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property (req.body)
     // ** believe i need to connect to text and complete within a different file
-    db.burgers.create({
+    db.burgers.insertOne({
       text: req.body.text,
       complete: req.body.complete
     }).then(function(dbburgers) {
@@ -32,7 +33,7 @@ module.exports = function(app) {
 
   // PUT route for updating burgers. We can get the updated burgers from req.body
   app.put("/api/burgers", function(req, res) {
-    db.Todo.update({
+    db.Todo.updateOne({
       text: req.body.text,
       complete: req.body.complete
     }, {
