@@ -9,10 +9,37 @@
         <div class="container">
             <center>
                 <div class="row">
-                    <img src="public/img/burger.jpeg" alt="Burger Image">
-                    
+                    <img src="public/img/burger.jpg" alt="Burger Image">
+                <div class="burger">
+                    <h1>Eat Da Burger</h1>
+                        <p>
+                            Choose your burger and eat itttt. Otherwise, make one yourself.
+                        </p>
+                </div>
                 </div>
             </center>
+
+            <br>
+            {{{body}}}
+            <br>
+
+            <form action="burger/create" method="POST">
+                <div class="form">
+
+                    <div class="col-md-3"></div>
+
+                        <div class="col-md-6">
+                            <label class="new-burger" id="submit">Order New Burger</label>
+                                <textarea class="input" type="text" id="new-burger" required-value=""></textarea>
+                    </div>
+
+                    <div class="col-md-3"></div>
+
+                </div>
+            </form>
+
         </div>
+
     </body>
+    
 </html>
