@@ -22,7 +22,7 @@
     <div class="col-md-3"></div>
 
         <div class="col-md-3">
-            <h4 class="submit">BUrgers Devoured</h4>
+            <h4 class="submit">Burgers Devoured</h4>
                 <div id="eaten">
                     {{#each burgers}}
                     {{#if this.devoured}}
