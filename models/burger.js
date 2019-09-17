@@ -6,7 +6,7 @@ var burger = {
             getback(res);
         });
     },
-    inserOne: function(burger_name, getback) {
+    insertOne: function(burger_name, getback) {
         orm.insertOne(burger_name, function(res) {
             getback(res);
         });
