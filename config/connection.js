@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
   database: process.env.database
 });
 
-  con.connect(function(err) {
+  connection.connect(function(err) {
     if (err) throw err;
     console.log("Connected as id " + connection.threadId);
   });

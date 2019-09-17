@@ -1,5 +1,5 @@
 // Requiring our burgers model
-var db = require("../models");
+var db = require("../models/burger.js");
 var connection = require("../config/connection.js");
 
 // Routes
