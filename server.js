@@ -21,6 +21,15 @@ orm.selectAll("burger_name", "devoured");
 orm.insertOne("burger_name", "devoured");
 orm.updateOne("burger_name", "devoured");
 
+var expresshb = require("express-handlebars");
+
+app.engine("handlebars", expresshb({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+var routes = require("./controllers/burgers_controller.js");
+
+app.use(routes);
+
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
