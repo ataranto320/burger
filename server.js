@@ -1,5 +1,6 @@
 var express = require("express");
 var dotenv = require("dotenv");
+var orm = require("./config/orm.js");
 
 // Sets up the Express App
 // =============================================================
