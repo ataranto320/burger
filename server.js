@@ -16,8 +16,10 @@ app.use(express.static("./public"));
 
 // Routes
 // =============================================================
-require("./config/orm.js")(app);
-
+// require("./config/orm.js")(app);
+orm.selectAll("burger_name", "devoured");
+orm.insertOne("burger_name", "devoured");
+orm.updateOne("burger_name", "devoured");
 
 // Starts the server to begin listening
 // =============================================================
