@@ -4,7 +4,7 @@ var connection = require("../config/connection.js");
 
 var orm = {
   selectAll: function() {
-    var queryString = "SELECT * FROM ?? WHERE ?? = ?";
+    var queryString = "SELECT * FROM" + tableInput + ";"
     connection.query(queryString), function(err, res) {
       if (err) throw err;
       console.log(res);
@@ -12,7 +12,7 @@ var orm = {
   },
 
   insertOne: function() {
-    var queryString = "SELECT * FROM ?? WHERE ?? = ?";
+    var queryString = "INSERT INTO " + table;
     connection.query(queryString), function(err, res) {
       if (err) throw err;
       console.log(res);
@@ -20,7 +20,7 @@ var orm = {
   },
 
   updateOne: function() {
-    var queryString = "SELECT * FROM ?? WHERE ?? = ?";
+    var queryString = "UPDATE " + table;
     connection.query(queryString), function(err, res) {
       if (err) throw err;
       console.log(res);
