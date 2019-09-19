@@ -18,15 +18,16 @@ app.use(express.static("./public"));
 // =============================================================
 // require("./config/orm.js")(app);
 orm.selectAll("burger_name", "devoured");
-orm.insertOne("burger_name", "devoured");
+orm.insertOne("Mexi", "0");
 orm.updateOne("burger_name", "devoured");
+
 
 var expresshb = require("express-handlebars");
 
 app.engine("handlebars", expresshb({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var routes = require("./controllers/burgers_controller.js");
+var routes = require("./controllers/burger_controllers.js");
 
 app.use(routes);
 

@@ -2,6 +2,7 @@ var mysql = require("mysql");
 
 var connection = mysql.createConnection({
   host: "localhost",
+  database: "burgers_db",
 
   // Your port; if not 3306
   port: 3306,
@@ -11,7 +12,7 @@ var connection = mysql.createConnection({
 
   // Your password
   password: process.env.password,
-  database: process.env.database
+  // database: process.env.database
 });
 
   connection.connect(function(err) {
