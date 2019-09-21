@@ -2,29 +2,49 @@
 var db = require("../models/burger.js");
 var connection = require("../config/connection.js");
 
+function sqlObject(object) {
+  var array = [];
+  for (var key in object) {
+    var value = object[key];
+    if (Object.hasProperty.call(object, key)) {
+      if (typeof value === "string" && value.indexOf(" ") >= 0) {
+        value = "'" + value + "'";
+      }
+      array.push(key + "=" + value);
+    }
+  }
+  return array.toString();
+}
+
 var orm = {
-  selectAll: function() {
+  selectAll: function(burger_name, devoured) {
     var queryString = "SELECT * FROM burgers";
-    connection.query(queryString), function(err, res) {
+    connection.query(queryString), [burger_name], [devoured], function(err, res) {
       if (err) throw err;
       console.log(res);
+      burger_name(res);
+      devoured(res);
     }
   },
 
   insertOne: function(burger_name, devoured) {
-    var queryString = "INSERT INTO burgers (burger_name, devoured) VALUES ('Mexi', '0');";
+    var queryString = "INSERT INTO burgers (burger_name, devoured) VALUES ('Mexi', '1'), ('BBQ', '1'), ('Apple Bacon', '0'));";
     console.log(queryString);
-    connection.query(queryString), function(err, res) {
+    connection.query(queryString), [burger_name], [devoured], function(err, res) {
       if (err) throw err;
       console.log(res);
+      burger_name(res);
+      devoured(res);
     }
   },
 
-  updateOne: function() {
-    var queryString = "UPDATE" 
+  updateOne: function(burger_name, devoured) {
+    var queryString = "UPDATE " + burger_name + devoured + " SET " + sqlObject(burger_name, devoured) + " WHERE " + condition;
     connection.query(queryString), function(err, res) {
       if (err) throw err;
       console.log(res);
+      burger_name(res);
+      devoured(res);
     }
   }
 };
