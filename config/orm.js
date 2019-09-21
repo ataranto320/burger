@@ -2,19 +2,19 @@
 var db = require("../models/burger.js");
 var connection = require("../config/connection.js");
 
-function sqlObject(object) {
-  var array = [];
-  for (var key in object) {
-    var value = object[key];
-    if (Object.hasProperty.call(object, key)) {
-      if (typeof value === "string" && value.indexOf(" ") >= 0) {
-        value = "'" + value + "'";
-      }
-      array.push(key + "=" + value);
-    }
-  }
-  return array.toString();
-}
+// function sqlObject(object) {
+//   var array = [];
+//   for (var key in object) {
+//     var value = object[key];
+//     if (Object.hasProperty.call(object, key)) {
+//       if (typeof value === "string" && value.indexOf(" ") >= 0) {
+//         value = "'" + value + "'";
+//       }
+//       array.push(key + "=" + value);
+//     }
+//   }
+//   return array.toString();
+// }
 
 var orm = {
   selectAll: function(burger_name, devoured) {
@@ -38,8 +38,8 @@ var orm = {
     }
   },
 
-  updateOne: function(burger_name, devoured) {
-    var queryString = "UPDATE " + burger_name + devoured + " SET " + sqlObject(burger_name, devoured) + " WHERE " + condition;
+  updateOne: function(burger_name, devoured, condition) {
+    var queryString = "UPDATE " + burger_name + devoured + " SET " + (burger_name, devoured) + " WHERE " + condition;
     connection.query(queryString), function(err, res) {
       if (err) throw err;
       console.log(res);
