@@ -1,20 +1,51 @@
-// Requiring our burgers model
-var db = require("../models/burger.js");
-var connection = require("../config/connection.js");
+require("dotenv").config();
+var connection = require("./connection.js");
 
-// function sqlObject(object) {
-//   var array = [];
-//   for (var key in object) {
-//     var value = object[key];
-//     if (Object.hasProperty.call(object, key)) {
+// function toSql(object) {
+//     var array = [];
+  
+//     for (var key in object) {
+//       var value = object[key];
+//       if (Object.property.call(object, key)) {
 //       if (typeof value === "string" && value.indexOf(" ") >= 0) {
-//         value = "'" + value + "'";
+//           value = "'" + value + "'";
+//         }
+//         array.push(key + "=" + value);
 //       }
-//       array.push(key + "=" + value);
 //     }
-//   }
-//   return array.toString();
+//     return array.toString();
 // }
+
+// var orm = {
+//     selectAll: function(tableInput, callback) {
+//         var queryString = "SELECT * FROM ??;";
+//         connection.query(queryString, [tableInput], function(err, res) {
+//             if (err) throw err;
+//             console.log(res);
+//             callback(res);
+//         });
+//     },
+//     insertOne: function(table, column, value, callback) {
+//         var queryString = "INSERT INTO " + table + " (" + column.toString() + ") VALUES (?);";
+//         connection.query(queryString, [value], function (err, res) {
+//             if (err) throw err;
+//             console.log(res);
+//             callback(res);
+//         });
+//     },
+//     updateOne: function(table, burgerValues, condition, callback) {
+//         var queryString = "UPDATE " + table + " SET " + toSql(burgerValues) + " WHERE " + condition;
+//         console.log(queryString);
+//         connection.query(queryString, function(err, res) {
+//             if (err) throw err;
+//             console.log(res);
+//             callback(res);
+//         });
+
+//     }
+// };
+
+// module.exports = orm;
 
 var orm = {
   selectAll: function(burger_name, devoured) {
