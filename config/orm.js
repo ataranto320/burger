@@ -65,19 +65,19 @@ var orm = {
             console.log(res);
             callback(res);
         });
-    },
-    deleteOne: function(table, condition, callback) {
-        var queryString = "DELETE FROM " + table;
-
-        queryString += " WHERE ";
-        queryString += condition;
-
-        connection.query(queryString, function(err, res) {
-            if (err) throw err;
-            console.log(res);
-            callback(res);
-        });
     }
+    // deleteOne: function(table, condition, callback) {
+    //     var queryString = "DELETE FROM " + table;
+
+    //     queryString += " WHERE ";
+    //     queryString += condition;
+
+    //     connection.query(queryString, function(err, res) {
+    //         if (err) throw err;
+    //         console.log(res);
+    //         callback(res);
+    //     });
+    // }
 };
 
 module.exports = orm;
