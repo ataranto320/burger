@@ -5,8 +5,7 @@ var connection;
 
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
-  
-}else{
+} else {
    connection = mysql.createConnection({
     host: "localhost",
     database: "burgers_db",
@@ -21,8 +20,6 @@ if (process.env.JAWSDB_URL) {
     password: process.env.password,
     database: process.env.database
   });
-  
-    
 }
 
 connection.connect(function(err) {
@@ -30,12 +27,7 @@ connection.connect(function(err) {
   console.log("Connected as id " + connection.threadId);
 });
 
-
-
-
-
-
-  module.exports = connection;
+module.exports = connection;
 
   // require("dotenv").config();
 // var mysql = require("mysql");
