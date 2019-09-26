@@ -2,25 +2,39 @@ require("dotenv").config();
 var mysql = require("mysql");
 var keys = require("../keys.js");
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  database: "burgers_db",
-
-  // Your port; if not 3306
-  port: 3306,
-
-  // Your username
-  user: "root",
-
-  // Your password
-  password: process.env.password,
-  database: process.env.database
-});
-
+if(process.env.NODE_ENV === "production"){
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
   connection.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected as id " + connection.threadId);
+    if (err) {
+      console.error("error connecting: " + err.stack);
+      return;
+    }
+    console.log("connected as id " + connection.threadId);
   });
+}else{
+  var connection = mysql.createConnection({
+    host: "localhost",
+    database: "burgers_db",
+  
+    // Your port; if not 3306
+    port: 3306,
+  
+    // Your username
+    user: "root",
+  
+    // Your password
+    password: process.env.password,
+    database: process.env.database
+  });
+  
+    connection.connect(function(err) {
+      if (err) throw err;
+      console.log("Connected as id " + connection.threadId);
+    });
+}
+
+
+
 
   module.exports = connection;
 
