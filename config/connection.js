@@ -29,7 +29,7 @@ connection.connect(function(err) {
 
 module.exports = connection;
 
-  // require("dotenv").config();
+// require("dotenv").config();
 // var mysql = require("mysql");
 // var keys = require("../keys.js");
 
