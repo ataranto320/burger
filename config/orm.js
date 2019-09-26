@@ -1,86 +1,86 @@
 require("dotenv").config();
 var connection = require("./connection.js");
 
-// function toSql(object) {
-//     var array = [];
+function toSql(object) {
+    var array = [];
   
-//     for (var key in object) {
-//       var value = object[key];
-//       if (Object.property.call(object, key)) {
-//       if (typeof value === "string" && value.indexOf(" ") >= 0) {
-//           value = "'" + value + "'";
-//         }
-//         array.push(key + "=" + value);
-//       }
-//     }
-//     return array.toString();
-// }
-
-// var orm = {
-//     selectAll: function(tableInput, callback) {
-//         var queryString = "SELECT * FROM ??;";
-//         connection.query(queryString, [tableInput], function(err, res) {
-//             if (err) throw err;
-//             console.log(res);
-//             callback(res);
-//         });
-//     },
-//     insertOne: function(table, column, value, callback) {
-//         var queryString = "INSERT INTO " + table + " (" + column.toString() + ") VALUES (?);";
-//         connection.query(queryString, [value], function (err, res) {
-//             if (err) throw err;
-//             console.log(res);
-//             callback(res);
-//         });
-//     },
-//     updateOne: function(table, burgerValues, condition, callback) {
-//         var queryString = "UPDATE " + table + " SET " + toSql(burgerValues) + " WHERE " + condition;
-//         console.log(queryString);
-//         connection.query(queryString, function(err, res) {
-//             if (err) throw err;
-//             console.log(res);
-//             callback(res);
-//         });
-
-//     }
-// };
-
-// module.exports = orm;
+    for (var key in object) {
+      var value = object[key];
+      if (Object.property.call(object, key)) {
+      if (typeof value === "string" && value.indexOf(" ") >= 0) {
+          value = "'" + value + "'";
+        }
+        array.push(key + "=" + value);
+      }
+    }
+    return array.toString();
+}
 
 var orm = {
-  selectAll: function(burger_name, devoured) {
-    var queryString = "SELECT * FROM burgers";
-    connection.query(queryString), [burger_name], [devoured], function(err, res) {
-      if (err) throw err;
-      console.log(res);
-      burger_name(res);
-      devoured(res);
-    }
-  },
+    selectAll: function(tableInput, callback) {
+        var queryString = "SELECT * FROM ??;";
+        connection.query(queryString, [tableInput], function(err, res) {
+            if (err) throw err;
+            console.log(res);
+            callback(res);
+        });
+    },
+    insertOne: function(table, column, value, callback) {
+        var queryString = "INSERT INTO " + table + " (" + column.toString() + ") VALUES (?);";
+        connection.query(queryString, [value], function (err, res) {
+            if (err) throw err;
+            console.log(res);
+            callback(res);
+        });
+    },
+    updateOne: function(table, burgerValues, condition, callback) {
+        var queryString = "UPDATE " + table + " SET " + toSql(burgerValues) + " WHERE " + condition;
+        console.log(queryString);
+        connection.query(queryString, function(err, res) {
+            if (err) throw err;
+            console.log(res);
+            callback(res);
+        });
 
-  insertOne: function(burger_name, devoured) {
-    var queryString = "INSERT INTO burgers (burger_name, devoured) VALUES ('Mexi', '1'), ('BBQ', '1'), ('Apple Bacon', '0'));";
-    console.log(queryString);
-    connection.query(queryString), [burger_name], [devoured], function(err, res) {
-      if (err) throw err;
-      console.log(res);
-      burger_name(res);
-      devoured(res);
     }
-  },
-
-  updateOne: function(burger_name, devoured, condition) {
-    var queryString = "UPDATE " + burger_name + devoured + " SET " + (burger_name, devoured) + " WHERE " + condition;
-    connection.query(queryString), function(err, res) {
-      if (err) throw err;
-      console.log(res);
-      burger_name(res);
-      devoured(res);
-    }
-  }
 };
 
 module.exports = orm;
+
+// var orm = {
+//   selectAll: function(burger_name, devoured) {
+//     var queryString = "SELECT * FROM burgers";
+//     connection.query(queryString), [burger_name], [devoured], function(err, res) {
+//       if (err) throw err;
+//       console.log(res);
+//       burger_name(res);
+//       devoured(res);
+//     }
+//   },
+
+//   insertOne: function(burger_name, devoured) {
+//     var queryString = "INSERT INTO burgers (burger_name, devoured) VALUES ('Mexi', '1'), ('BBQ', '1'), ('Apple Bacon', '0'));";
+//     console.log(queryString);
+//     connection.query(queryString, [burger_name], [devoured], function(err, res) {
+//       if (err) throw err;
+//       console.log(res);
+//       burger_name(res);
+//       devoured(res);
+//     })
+//   },
+    
+//   updateOne: function(burger_name, devoured, condition) {
+//     var queryString = "UPDATE " + burger_name + devoured + " SET " + (burger_name, devoured) + " WHERE " + condition;
+//     connection.query(queryString), function(err, res) {
+//       if (err) throw err;
+//       console.log(res);
+//       burger_name(res);
+//       devoured(res);
+//     }
+//   }
+// };
+
+// module.exports = orm;
 
 // Routes
 // =============================================================

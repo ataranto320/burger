@@ -1,6 +1,6 @@
 <div class="container my-3 p-3 rounded" id="header">
     <h1 class="display-3 mx-auto my-0 p-1 text-center">Eat Da Burger!</h1>
-    <img class="mx-auto my-0 p-0 d-block" id="burger-image" src="/public/img/burger.jpg" alt="burger">    
+    <img class="mx-auto my-0 p-0 d-block" id="burger-image" src="/img/burger.jpg" alt="burger">    
 </div>
 
 <div class="container">
@@ -9,14 +9,12 @@
             <h3>Burgers on Da Menu!</h3>
             <ul>
                 {{#each burgers}}
-                {{#unless devoured}}
                     <li class="p-2">
                         <strong>{{burger_name}}</strong>
                         <button class="devour-burger btn btn-danger" data-id="{{id}}" data-eaten="true">
                             Eat The Burger
                         </button>
                     </li>
-                {{/unless}}
                 {{/each}}
             </ul>
         </div>
