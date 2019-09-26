@@ -1,6 +1,15 @@
 require("dotenv").config();
 var connection = require("./connection.js");
 
+function pushBurger(num)
+{
+    var array = [];
+    for (var i = 0; i < Number; i++) {
+        array.push("?");
+    }
+    return array.toString();
+}
+
 function toSql(object) {
     var array = [];
   
@@ -27,6 +36,15 @@ var orm = {
     },
     insertOne: function(table, column, value, callback) {
         var queryString = "INSERT INTO " + table + " (" + column.toString() + ") VALUES (?);";
+
+        queryString += " (";
+        queryString += column.toString();
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += pushBurger(value.length);
+        queryString += ") ";
+        console.log(queryString);
+
         connection.query(queryString, [value], function (err, res) {
             if (err) throw err;
             console.log(res);
@@ -35,13 +53,18 @@ var orm = {
     },
     updateOne: function(table, burgerValues, condition, callback) {
         var queryString = "UPDATE " + table + " SET " + toSql(burgerValues) + " WHERE " + condition;
+
+        queryString += " SET ";
+        queryString += toSql(burgerValues);
+        queryString += " WHERE ";
+        queryString += condition;
         console.log(queryString);
+
         connection.query(queryString, function(err, res) {
             if (err) throw err;
             console.log(res);
             callback(res);
         });
-
     }
 };
 
